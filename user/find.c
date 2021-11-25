@@ -10,6 +10,9 @@ find(char *dir, char *name) {
 
   // read all files in current directory
   while(read(fd, &de, sizeof de) == sizeof de) {
+    if(de.inum == 0) {
+      continue;
+    }
     // dir + current file name
     char buf[512] = {0}, *p;
     memmove(buf, dir, strlen(dir));
