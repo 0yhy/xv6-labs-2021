@@ -141,6 +141,11 @@ found:
   p->context.ra = (uint64)forkret;
   p->context.sp = p->kstack + PGSIZE;
 
+  // initialize alarm related fields
+  p->almhandler = 0;
+  p->alminterval = 0;
+  p->almticks = 0;
+
   return p;
 }
 
